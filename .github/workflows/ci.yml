@@ -25,7 +25,7 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm lint
       - run: pnpm test
-      - run: pnpm build
+      - run: NEXT_PUBLIC_MEDIA_HOST=pub-ef36ff21d4d845baa6a6d2c06dee5116.r2.dev pnpm build
       - run: VIDEOS_MANIFEST=tests/fixtures/videos.json pnpm build
       - run: pnpm exec playwright install --with-deps chromium
       - run: pnpm test:e2e
