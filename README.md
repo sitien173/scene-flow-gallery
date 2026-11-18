@@ -1,6 +1,6 @@
 # scene-flow gallery
 
-A static Next.js site that lists short videos made with scene-flow. Each video has its own page, and the grid can be filtered by theme. The site reads a JSON manifest at build time. Videos and posters are served from a separate media host.
+A static Next.js site that lists short videos made with scene-flow. Each video has its own page. The site reads a JSON manifest at build time. Videos and posters are served from a separate media host.
 
 ## Requirements
 
@@ -41,7 +41,7 @@ VIDEOS_MANIFEST=tests/fixtures/videos.json pnpm build && pnpm exec serve out
 
 1. Render the video with scene-flow: `<scene-flow render command>`. The input must be 9:16, for example 576x1024. A file whose only rotation is a legacy `rotate` tag is rejected, because ffmpeg does not apply that tag.
 
-2. Create the MP4 and the poster. Choose a slug made of lowercase letters, digits, and hyphens. Choose a poster time in seconds that is less than the video length:
+2. Create the MP4 and the poster. Choose a slug made of lowercase letters, digits, and hyphens. Choose a poster time in seconds that is less than the video length. Use `0`, because frame 0 has no caption:
 
    ```sh
    scripts/prepare-video.sh "<input>" <slug> <poster-seconds> > /tmp/<slug>.json
@@ -125,7 +125,7 @@ The maintainer owns this setup.
 
 An invalid manifest fails `pnpm build`. The error names the entry index and the field, for example `videos[0].title: must not be blank`.
 
-An empty manifest (`[]`) builds. The home page shows `No videos yet`. A static export needs at least one `/v/[slug]` route, so the build also writes `out/v/_none/`. That route is not a video. Its page has a `noindex` robots meta tag. The file is static, so a host may serve it with HTTP 200. Cloudflare Pages behavior for this route was not tested.
+An empty manifest (`[]`) builds. The home page shows `Chưa có video nào.`. A static export needs at least one `/v/[slug]` route, so the build also writes `out/v/_none/`. That route is not a video. Its page has a `noindex` robots meta tag. The file is static, so a host may serve it with HTTP 200. Cloudflare Pages behavior for this route was not tested.
 
 ## CI
 

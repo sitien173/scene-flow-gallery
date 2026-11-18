@@ -4,7 +4,6 @@ import { expect, type Page, test } from "@playwright/test";
 type FixtureVideo = {
   slug: string;
   title: string;
-  theme: "dark" | "paper" | "world3d";
   durationSec: number;
   script: string;
 };
@@ -44,40 +43,24 @@ test("grid shows three cards", async ({ page }) => {
     await expect(link).toBeVisible();
     await expect(link).toHaveAttribute("href", /^\/v\/[a-z0-9-]+\/$/);
   }
-  await expect(page.getByText("3 videos", { exact: true })).toBeVisible();
+  const hrefs = await links.evaluateAll((els) =>
+    els.map((el) => el.getAttribute("href")),
+  );
+  expect(hrefs).toEqual([
+    "/v/tour-world3d/",
+    "/v/paper-overview/",
+    "/v/intro-dark/",
+  ]);
 });
 
-test("theme filter narrows and restores", async ({ page }) => {
-  await page.goto("/");
-  const all = page.getByRole("button", { name: "All", exact: true });
-  const paper = page.getByRole("button", { name: "Paper", exact: true });
-  await paper.click();
-  await expect(page).toHaveURL(/\?theme=paper$/);
-  await expect(paper).toHaveAttribute("aria-pressed", "true");
-  await expect(
-    page.getByText("1 video in Paper", { exact: true }),
-  ).toBeVisible();
-  await expect(cards(page)).toHaveCount(1);
-  await expect(
-    page.getByRole("link", { name: bySlug("paper-overview").title }),
-  ).toBeVisible();
-  await all.click();
-  await expect(page).toHaveURL(/\/$/);
+test("old theme query shows all cards", async ({ page }) => {
+  await page.goto("/?theme=paper");
   await expect(cards(page)).toHaveCount(3);
-  await expect(all).toHaveAttribute("aria-pressed", "true");
-});
-
-test("unknown theme behaves as all", async ({ page }) => {
-  await page.goto("/?theme=bogus");
-  await expect(cards(page)).toHaveCount(3);
-  await expect(
-    page.getByRole("button", { name: "All", exact: true }),
-  ).toHaveAttribute("aria-pressed", "true");
 });
 
 test.describe("video page", () => {
   // Hold the mp4 request open. A 404 would unmount the player and show
-  // "Video unavailable", which the broken-video test covers.
+  // "Không phát được video", which the broken-video test covers.
   test.beforeEach(async ({ page }) => {
     await page.route(/media\.example\.com\/.*\.mp4$/, () => {});
   });
@@ -89,9 +72,33 @@ test.describe("video page", () => {
     await expect(page).toHaveURL(/\/v\/intro-dark\/$/);
     await expect(page.locator("video")).toHaveAttribute("controls", "");
     await expect(
-      page.getByRole("heading", { name: "Transcript", exact: true }),
+      page.getByRole("link", { name: "Tất cả video" }),
+    ).toBeVisible();
+    await expect(
+      page.getByRole("heading", { name: "Lời thoại", exact: true }),
     ).toBeVisible();
     await expect(page.getByText(intro.script, { exact: true })).toBeVisible();
+  });
+
+  test("desktop puts the whole player beside the details", async ({ page }) => {
+    await page.setViewportSize({ width: 1280, height: 720 });
+    await page.goto("/v/intro-dark/");
+    const player = await page.locator("video").boundingBox();
+    const title = await page.getByRole("heading", { level: 1 }).boundingBox();
+    expect(player && title).toBeTruthy();
+    if (!player || !title) return;
+    expect(player.y + player.height).toBeLessThanOrEqual(720);
+    expect(title.x).toBeGreaterThanOrEqual(player.x + player.width);
+  });
+
+  test("phone stacks the details under the player", async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto("/v/intro-dark/");
+    const player = await page.locator("video").boundingBox();
+    const title = await page.getByRole("heading", { level: 1 }).boundingBox();
+    expect(player && title).toBeTruthy();
+    if (!player || !title) return;
+    expect(title.y).toBeGreaterThanOrEqual(player.y + player.height);
   });
 
   test("no autoplay", async ({ page }) => {
@@ -112,9 +119,7 @@ test("hover preview mounts and unmounts", async ({ page }) => {
   await expect(preview).toHaveCount(1);
   await expect(preview).toHaveJSProperty("muted", true);
   await expect(preview).toHaveJSProperty("loop", true);
-  await page
-    .getByRole("heading", { level: 1, name: "Scene Flow Gallery" })
-    .hover();
+  await page.getByRole("heading", { level: 1, name: "Góc Nhìn Mở" }).hover();
   await expect(preview).toHaveCount(0);
 });
 
@@ -159,13 +164,6 @@ test.describe("touch device", () => {
   });
 });
 
-// Mirrors the theme labels in components/theme-filter.tsx.
-const THEME_LABELS: Record<FixtureVideo["theme"], string> = {
-  dark: "Dark",
-  paper: "Paper",
-  world3d: "World 3D",
-};
-
 // Mirrors formatDuration in components/video-card.tsx.
 function formatDuration(totalSeconds: number) {
   const seconds = Math.round(totalSeconds);
@@ -181,21 +179,16 @@ test("broken poster keeps text visible", async ({ page }) => {
     const card = page.getByRole("link", { name: video.title });
     await expect(card.getByText(video.title, { exact: true })).toBeVisible();
     await expect(
-      card.getByText(THEME_LABELS[video.theme], { exact: true }),
-    ).toBeVisible();
-    await expect(
       card.getByText(formatDuration(video.durationSec), { exact: true }),
     ).toBeVisible();
   }
 });
 
-test("broken video shows Video unavailable", async ({ page }) => {
+test("broken video shows Không phát được video", async ({ page }) => {
   await page.route(/media\.example\.com\/.*\.(mp4|webp)$/, (route) =>
     route.fulfill({ status: 404 }),
   );
   await page.goto("/v/intro-dark/");
-  await expect(
-    page.getByText("Video unavailable", { exact: true }),
-  ).toBeVisible();
+  await expect(page.getByRole("status")).toHaveText("Không phát được video");
   await expect(page.locator("video")).toHaveCount(0);
 });

@@ -2,8 +2,6 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { THEME_FILTERS } from "@/components/theme-filter";
-import { Badge } from "@/components/ui/badge";
 import type { Video } from "@/lib/videos";
 
 function formatDuration(totalSeconds: number) {
@@ -19,9 +17,6 @@ export function VideoCard({ video }: { video: Video }) {
   const [previewAllowed, setPreviewAllowed] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const showPreview = (hovered || focused) && previewAllowed;
-  const themeLabel = THEME_FILTERS.find(
-    (filter) => filter.value === video.theme,
-  )?.label;
 
   useEffect(() => {
     const noHover = window.matchMedia("(hover: none)");
@@ -48,9 +43,9 @@ export function VideoCard({ video }: { video: Video }) {
       onPointerLeave={() => setHovered(false)}
       onFocus={() => setFocused(true)}
       onBlur={() => setFocused(false)}
-      className="block rounded-xl outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50 motion-safe:transition-transform motion-safe:duration-200 motion-safe:ease-out motion-safe:hover:-translate-y-0.5"
+      className="block rounded-xl outline-none focus-visible:ring-[3px] focus-visible:ring-ring motion-safe:transition-transform motion-safe:duration-200 motion-safe:ease-out motion-safe:hover:-translate-y-0.5"
     >
-      <div className="relative aspect-[9/16] overflow-hidden rounded-xl bg-muted">
+      <div className="relative aspect-[9/16] overflow-hidden rounded-xl bg-black">
         {posterFailed ? null : (
           // biome-ignore lint/performance/noImgElement: native lazy img is required; static export uses unoptimized images
           <img
@@ -73,16 +68,16 @@ export function VideoCard({ video }: { video: Video }) {
             className="absolute inset-0 size-full object-cover"
           />
         ) : null}
-      </div>
-      <h2 lang={video.lang} className="mt-3 text-sm leading-snug font-medium">
-        {video.title}
-      </h2>
-      <div className="mt-1.5 flex items-center justify-between gap-2 text-xs text-muted-foreground">
-        <Badge variant="outline">{themeLabel}</Badge>
-        <span className="tabular-nums">
+        <span className="absolute right-2 bottom-2 rounded-md bg-black/60 px-1.5 py-0.5 text-xs font-medium text-white tabular-nums">
           {formatDuration(video.durationSec)}
         </span>
       </div>
+      <h2
+        lang={video.lang}
+        className="mt-3 line-clamp-2 text-sm leading-normal font-medium"
+      >
+        {video.title}
+      </h2>
     </Link>
   );
 }

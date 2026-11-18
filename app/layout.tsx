@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Be_Vietnam_Pro } from "next/font/google";
 import "./globals.css";
 
@@ -14,9 +14,17 @@ export const metadata: Metadata = {
   ),
 };
 
+export const viewport: Viewport = {
+  colorScheme: "dark",
+  themeColor: "#16264A",
+};
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${beVietnamPro.variable} h-full antialiased`}>
+    <html
+      lang="vi"
+      className={`${beVietnamPro.variable} dark h-full antialiased`}
+    >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
