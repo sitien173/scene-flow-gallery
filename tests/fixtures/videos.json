@@ -1,0 +1,59 @@
+[
+  {
+    "slug": "intro-dark",
+    "title": "Giới thiệu dịch vụ",
+    "theme": "dark",
+    "videoUrl": "https://media.example.com/v/intro-dark-v1.mp4",
+    "posterUrl": "https://media.example.com/v/intro-dark-poster.webp",
+    "durationSec": 42,
+    "publishedAt": "2026-11-01",
+    "lang": "vi",
+    "script": "Chào mừng bạn đến với C&G Vocational Services.",
+    "creator": {
+      "name": "C&G Vocational Services",
+      "url": "https://www.example.com/"
+    },
+    "sources": {
+      "voice": "self-recorded",
+      "screenRecordings": true,
+      "notes": "Recorded in a quiet room."
+    }
+  },
+  {
+    "slug": "paper-overview",
+    "title": "Overview of the workshop schedule",
+    "theme": "paper",
+    "videoUrl": "https://media.example.com/v/paper-overview-v1.mp4",
+    "posterUrl": "https://media.example.com/v/paper-overview-poster.webp",
+    "durationSec": 65.5,
+    "publishedAt": "2026-11-05",
+    "lang": "en",
+    "script": "This short overview walks through the weekly workshop schedule.",
+    "creator": {
+      "name": "C&G Vocational Services"
+    },
+    "sources": {
+      "voice": "tts-api",
+      "screenRecordings": false
+    }
+  },
+  {
+    "slug": "tour-world3d",
+    "title": "Không gian làm việc 3D",
+    "theme": "world3d",
+    "videoUrl": "https://media.example.com/v/tour-world3d-v1.mp4",
+    "posterUrl": "https://media.example.com/v/tour-world3d-poster.webp",
+    "durationSec": 30,
+    "publishedAt": "2026-11-10",
+    "lang": "vi",
+    "script": "Hãy cùng khám phá không gian làm việc qua mô hình ba chiều.",
+    "creator": {
+      "name": "C&G Vocational Services",
+      "url": "https://www.example.com/"
+    },
+    "sources": {
+      "voice": "vieneu-tts",
+      "screenRecordings": true
+    }
+  }
+]
