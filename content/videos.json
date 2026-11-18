@@ -17,5 +17,24 @@
       "screenRecordings": false,
       "notes": "Giọng đọc VieNeu-TTS, giọng mẫu Hải Đăng."
     }
+  },
+  {
+    "slug": "fujimod",
+    "title": "FujiMod: hồi sinh Fujifilm cũ bằng custom firmware",
+    "theme": "dark",
+    "videoUrl": "https://pub-ef36ff21d4d845baa6a6d2c06dee5116.r2.dev/v/fujimod-v1.mp4",
+    "posterUrl": "https://pub-ef36ff21d4d845baa6a6d2c06dee5116.r2.dev/v/fujimod-v1.webp",
+    "durationSec": 86.6,
+    "publishedAt": "2026-11-18",
+    "lang": "vi",
+    "script": "Bạn có tin một chiếc Fujifilm đời cũ có thể được bổ sung hơn hai mươi tính năng mới, thậm chí có những tính năng mà chính chiếc máy chưa từng có? Đây là FujiMod, một dự án custom firmware dành cho máy ảnh Fujifilm. Dự án do lập trình viên Jake khởi xướng, cùng cộng đồng góp ý và thử nghiệm, với mục tiêu khai thác thêm khả năng của những chiếc máy ảnh đời cũ. Phiên bản đầu tiên tập trung vào Fujifilm X bảy mươi, và website giới thiệu tới hai mươi ba tính năng mới. Ví dụ nhé! Bạn có thể chụp với những tỷ lệ khung hình cực rộng như sáu lăm trên hai tư, theo phong cách XPan. Có Snap Focus, cho phép lấy nét nhanh tại khoảng cách được thiết lập trước. Có Highlight Metering để ưu tiên bảo vệ vùng sáng. Thậm chí, bạn còn có thể tự tạo Film Simulation, chỉnh sửa màu sắc và lưu các công thức màu của riêng mình. Chưa hết, dự án còn giới thiệu F-Log, Anamorphic Desqueeze, HDMI Output và khả năng tùy biến các nút xoay trên máy. Điều mình thích nhất là bạn không nhất thiết phải sở hữu một chiếc X bảy mươi để khám phá dự án này. FujiMod có emulator chạy ngay trên trình duyệt. Bạn có thể trải nghiệm giao diện và thử các tính năng mà chưa cần can thiệp vào máy ảnh thật. Phía sau dự án là cả một hành trình dịch ngược firmware, và tác giả Jake cho biết AI đã giúp dựng một trình giả lập để thử mọi thay đổi mà không sợ làm hỏng máy thật. Về cơ bản, công cụ sử dụng firmware chính hãng mà người dùng cung cấp để tạo bản firmware đã được chỉnh sửa. Dự án có phương án dual-boot từ thẻ SD, giúp chạy bản mod mà không cần flash trực tiếp custom firmware vào máy. Nhưng lưu ý: đây vẫn là dự án thử nghiệm. Không phải tất cả tính năng đã được kiểm chứng trên phần cứng, và cũng không phải mọi dòng Fujifilm đều được hỗ trợ. Đặc biệt, nếu bạn đang sở hữu những chiếc Fujifilm đời cũ, đây thực sự là một dự án rất đáng theo dõi. Biết đâu trong tương lai, thay vì nâng cấp lên một chiếc máy mới, chúng ta chỉ cần một bản firmware mới? Bạn đang dùng Fujifilm model nào? Comment bên dưới nhé!",
+    "creator": {
+      "name": "Góc Nhìn Mở"
+    },
+    "sources": {
+      "voice": "vieneu-tts",
+      "screenRecordings": true,
+      "notes": "Giọng đọc VieNeu-TTS, giọng mẫu Hải Đăng, tốc độ 1.25x. Ảnh X70: Focus35mm, Wikimedia Commons, CC BY-SA 4.0. Ảnh chụp trang fujimod.com và github.com/justjake/fujimod. Các byte hex trong cảnh AI chỉ mang tính minh họa."
+    }
   }
 ]
