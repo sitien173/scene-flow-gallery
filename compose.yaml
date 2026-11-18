@@ -1,0 +1,10 @@
+services:
+  web:
+    build:
+      context: .
+      args:
+        NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL:?set in .env}
+        NEXT_PUBLIC_MEDIA_HOST: ${NEXT_PUBLIC_MEDIA_HOST:?set in .env}
+    restart: unless-stopped
+    ports:
+      - "30062:80"

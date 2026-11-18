@@ -102,6 +102,16 @@ The maintainer owns this setup.
 
 4. Open item before launch: `next.config.ts` sets `trailingSlash: true`. Confirm that the Pages site serves `/v/<slug>/` as expected. This was not verified.
 
+## Docker deploy
+
+`compose.yaml` builds the static site and serves it over plain HTTP with Caddy on port 30062, on all network interfaces. TLS and routing belong to the reverse proxy in front of it. Media stays on R2.
+
+1. On the server, clone the repository and copy `.env.example` to `.env`. Set `NEXT_PUBLIC_SITE_URL` to the public address the proxy serves and `NEXT_PUBLIC_MEDIA_HOST` to the R2 media host.
+2. Upload the media to R2 as described above, and commit the manifest entries to `content/videos.json`.
+3. Run `docker compose up -d --build`.
+
+To publish new videos, pull and rerun step 3.
+
 ## Manifest rules
 
 `content/videos.json` is a JSON array of entries.

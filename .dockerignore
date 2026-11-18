@@ -1,0 +1,10 @@
+.git
+node_modules
+.next
+out
+media
+test-results
+playwright-report
+blob-report
+docs
+.env*
