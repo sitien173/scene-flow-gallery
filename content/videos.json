@@ -1,1 +1,21 @@
-[]
+[
+  {
+    "slug": "dien-mat-troi-3d",
+    "title": "Điện mặt trời hoạt động thế nào",
+    "theme": "world3d",
+    "videoUrl": "https://pub-ef36ff21d4d845baa6a6d2c06dee5116.r2.dev/v/dien-mat-troi-3d-v1.mp4",
+    "posterUrl": "https://pub-ef36ff21d4d845baa6a6d2c06dee5116.r2.dev/v/dien-mat-troi-3d-v1.webp",
+    "durationSec": 175.1,
+    "publishedAt": "2026-11-18",
+    "lang": "vi",
+    "script": "Tấm pin mặt trời trên mái nhà không có bộ phận nào chuyển động, không đốt nhiên liệu và gần như không phát ra tiếng ồn. Vậy làm sao nó biến ánh nắng thành điện để thắp sáng cả ngôi nhà? Cùng Góc Nhìn Mở tìm hiểu nhé. Một hệ thống điện mặt trời gia đình thường có bốn phần chính: tấm pin để thu ánh nắng, bộ biến tần để chuyển đổi dòng điện, pin lưu trữ để giữ điện cho lúc cần, và công tơ điện kết nối với lưới điện. Hãy đi theo đường đi của năng lượng, từ mái nhà xuống ổ cắm. Mỗi tấm pin được ghép từ nhiều tế bào quang điện, phần lớn làm từ silicon tinh khiết. Mỗi tế bào có hai lớp silicon được pha thêm những chất khác nhau. Một lớp dư electron, gọi là lớp N. Lớp còn lại thiếu electron, gọi là lớp P. Nơi hai lớp tiếp xúc hình thành một điện trường, giống như một con dốc chỉ cho electron đi theo một chiều. Ánh nắng là dòng những hạt năng lượng rất nhỏ gọi là photon. Khi photon chiếu vào tế bào, nó truyền năng lượng cho electron trong silicon, làm electron bứt ra khỏi liên kết. Điện trường đẩy các electron này về một phía. Nếu nối hai mặt tế bào bằng dây dẫn, electron sẽ chạy thành dòng qua mạch. Đó chính là dòng điện. Hiện tượng này gọi là hiện tượng quang điện trong. Tuy nhiên, tấm pin chỉ tạo ra dòng điện một chiều, tức là dòng điện chạy theo một hướng cố định. Trong khi đó, điện lưới và hầu hết thiết bị trong nhà dùng dòng điện xoay chiều. Vì vậy cần đến bộ biến tần, hay còn gọi là inverter. Nó chuyển dòng một chiều thành dòng xoay chiều, phù hợp với điện lưới Việt Nam là hai trăm hai mươi vôn, năm mươi héc. Nhiều bộ biến tần hiện nay còn liên tục điều chỉnh để lấy được nhiều điện nhất từ tấm pin khi nắng thay đổi. Sau biến tần, điện được ưu tiên cấp cho các thiết bị đang dùng trong nhà. Nếu tấm pin tạo ra nhiều hơn nhu cầu, phần dư có thể được sạc vào pin lưu trữ, hoặc đưa lên lưới điện, tùy loại hệ thống và quy định ở từng nơi. Khi tấm pin không đủ, ngôi nhà lấy thêm điện từ pin lưu trữ hoặc từ lưới. Dựa vào cách kết nối, có ba loại hệ thống phổ biến. Hệ hòa lưới nối trực tiếp với điện lưới, thường không có pin lưu trữ nên chi phí thấp hơn. Một điều ít người biết: khi lưới mất điện, biến tần hòa lưới sẽ tự ngắt để bảo đảm an toàn cho người sửa chữa đường dây. Vì vậy, dù trời đang nắng, nhà dùng hệ hòa lưới vẫn có thể bị mất điện. Hệ độc lập không nối lưới và cần pin lưu trữ, phù hợp với nơi chưa có điện lưới. Còn hệ hybrid kết hợp cả hai: vừa nối lưới, vừa có pin dự phòng. Còn ban đêm thì sao? Không có ánh sáng, tấm pin không tạo ra điện. Lúc này, ngôi nhà dùng điện từ pin lưu trữ hoặc từ lưới. Khi trời nhiều mây, tấm pin vẫn hoạt động, nhưng sản lượng giảm đáng kể. Hiệu quả của hệ thống còn phụ thuộc vào nhiều yếu tố. Hướng và góc nghiêng của tấm pin quyết định lượng nắng nhận được. Bóng râm, dù chỉ che một phần nhỏ, cũng có thể làm giảm công suất của cả dãy pin. Bụi bẩn bám lâu ngày cũng cản ánh sáng. Và có một điều bất ngờ: tấm pin không thích quá nóng. Nhiệt độ càng cao, hiệu suất càng giảm. Hiện nay, phần lớn tấm pin thương mại chuyển đổi được khoảng hai mươi phần trăm năng lượng ánh nắng thành điện. Tóm lại, ánh nắng làm electron trong tấm pin chuyển động, tạo ra dòng điện một chiều. Biến tần đổi nó thành dòng xoay chiều. Điện được dùng ngay, lưu vào pin, hoặc đưa lên lưới. Tất cả diễn ra lặng lẽ trên mái nhà, mỗi ngày. Nếu thấy video hữu ích, hãy theo dõi Góc Nhìn Mở để khám phá thêm những điều thú vị quanh ta.",
+    "creator": {
+      "name": "Góc Nhìn Mở"
+    },
+    "sources": {
+      "voice": "vieneu-tts",
+      "screenRecordings": false,
+      "notes": "Giọng đọc VieNeu-TTS, giọng mẫu Hải Đăng."
+    }
+  }
+]
